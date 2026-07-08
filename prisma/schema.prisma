@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Developer {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  projects  Project[]
+  trackingOrders TrackingOrder[]
+  @@map("developers")
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String   @db.Text
+  link        String?
+  developerId Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  developer   Developer @relation(fields: [developerId], references: [id], onDelete: Cascade)
+  images      ProjectImage[]
+  @@map("projects")
+}
+
+model ProjectImage {
+  id        Int      @id @default(autoincrement())
+  imageUrl  String
+  projectId Int
+  createdAt DateTime @default(now())
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  @@map("project_images")
+}
+
+model TrackingOrder {
+  id          Int      @id @default(autoincrement())
+  orderCode   String   @unique
+  customerName String
+  customerEmail String
+  projectName  String
+  status       Status  @default(PENDING)
+  progress     Int     @default(0)
+  description  String? @db.Text
+  developerId  Int
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  developer    Developer @relation(fields: [developerId], references: [id], onDelete: Cascade)
+  histories    TrackingHistory[]
+  @@map("tracking_orders")
+}
+
+model TrackingHistory {
+  id          Int      @id @default(autoincrement())
+  trackingId  Int
+  status      Status
+  progress    Int
+  note        String   @db.Text
+  createdAt   DateTime @default(now())
+  trackingOrder TrackingOrder @relation(fields: [trackingId], references: [id], onDelete: Cascade)
+  @@map("tracking_histories")
+}
+
+enum Status {
+  PENDING
+  ON_PROGRESS
+  REVIEW
+  REVISION
+  COMPLETED
+  CANCELLED
+}

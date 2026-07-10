@@ -139,7 +139,7 @@
 	<div class="pointer-events-none fixed inset-0 z-0 grid-squares-bg"></div>
 	<div class="pointer-events-none fixed -top-40 -left-40 z-0 h-[36rem] w-[36rem] rounded-full bg-blue-500/[0.06] blur-[120px] dark:bg-blue-500/[0.08]"></div>
 
-	<section class="relative z-10 flex min-h-screen w-full flex-col items-center justify-center px-8 sm:px-12 md:px-16">
+	<section class="relative z-10 flex min-h-[100dvh] w-full flex-col items-center justify-center px-4 sm:px-12 md:px-16">
 		<div class="mx-auto w-full max-w-6xl flex flex-col items-center text-center">
 
 			{#if mounted}
@@ -149,11 +149,11 @@
 				</div>
 
 				<h1 class="heading-font text-zinc-950 dark:text-white relative w-full flex flex-col items-center gap-1 sm:gap-2">
-					<span class="block text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-tight leading-[1.1]">
+					<span class="block text-[clamp(2rem,10vw,5rem)] sm:text-7xl lg:text-8xl font-semibold tracking-tight leading-[1.1]">
 						Saya ubah ide jadi
 					</span>
 
-					<span class="rotator-line relative block text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1]">
+					<span class="rotator-line relative block text-[clamp(2rem,10vw,5rem)] sm:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1]">
 						{#key currentIndex}
 							<span
 								class="rotator-word absolute text-blue-600 dark:text-blue-400 left-1/2"
@@ -166,7 +166,7 @@
 					</span>
 				</h1>
 
-				<p class="reveal-line mt-8 max-w-lg text-base sm:text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed" style="animation-delay:.15s">
+				<p class="reveal-line mt-8 w-full max-w-md px-2 text-sm sm:text-base md:text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed" style="animation-delay:.15s">
 					Bangun aplikasi web dari nol sampai deploy — cepat, rapi, dan gampang dikembangin ke depannya.
 				</p>
 
@@ -174,7 +174,7 @@
 					<a href="#projects"
 						class="flex h-12 items-center rounded-full bg-zinc-950 px-7 text-sm font-semibold text-white transition-all hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-gray-100 shadow-lg active:scale-[0.98]"
 					>Lihat Project</a>
-					<a href="mailto:hello@dakode.dev"
+					<a href="https://wa.me/628585558415?text=Halo%20Dakode%2C%20saya%20tertarik%20untuk%20konsultasi!" target="_blank" rel="noopener noreferrer"
 						class="flex h-12 items-center rounded-full border-2 border-zinc-950 bg-transparent px-7 text-sm font-semibold text-zinc-950 transition-all hover:bg-zinc-950 hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black active:scale-[0.98]"
 					>Hubungi Saya</a>
 				</div>
@@ -204,7 +204,7 @@
 		</div>
 	</section>
 
-	<section id="projects" class="relative z-10 w-full px-8 sm:px-12 md:px-16 pb-28 pt-6 scroll-mt-20">
+	<section id="projects" class="relative z-10 w-full px-4 sm:px-12 md:px-16 pb-28 pt-6 scroll-mt-20">
 		<div class="mx-auto w-full max-w-6xl">
 			<div class="mb-10 flex flex-col gap-2">
 				<span class="w-fit inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/60 px-3.5 py-1.5 text-xs font-medium text-zinc-600 backdrop-blur-sm tracking-widest uppercase dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-zinc-400">

@@ -296,6 +296,8 @@
     50% { clip-path: inset(5% 0 85% 0); } 70% { clip-path: inset(88% 0 3% 0); }
     100% { clip-path: inset(40% 0 43% 0); }
   }
+</style>
+
 <!-- ================= MODAL CONTACT WHATSAPP ================= -->
 {#if showContactModal}
   <div class="fixed inset-0 z-[100] flex items-center justify-center bg-gray-950/40 backdrop-blur-md p-4" onclick={() => showContactModal = false}>
@@ -327,5 +329,3 @@
     </div>
   </div>
 {/if}
-
-</style>
